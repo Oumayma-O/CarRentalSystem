@@ -22,7 +22,31 @@ namespace CarRentalSystem.Repository
             
         }
         [SupportedOSPlatform("windows")]
-        public List<Driver> GetAllDrivers()
+
+        public bool BookingNow(Rent rent)
+        {
+            bool isSaved = false;
+            OleDbConnection con = GetOLeConnection();
+            try
+            {
+                con.Open();
+                rent.TotalAmount = rent.TotalRun + rent.Rate; 
+                string qry = String.Format("Insert into Rents (PickUp , DropOff, PickUpDate,DropOffDate , TotalRun , Rate, TotalAmount,Brand, Model, DriverId , CustomerName, CustomerContact ) values (" +
+                    "'{0},'{1}','{2}','{3}', '{4}', '{5}', '{6}', '{7}', '{8}', '{9}', '{10}', '{11}')", rent.PickUp, rent.DropOff, rent.PickUpDate, rent.DropOffDate , rent.TotalRun, rent.Rate, rent.TotalAmount, 
+                    rent.Brand, rent.Model, rent.DriverId , rent.CustomerName , rent.CustomerContact);
+                isSaved = SaveData(qry, con);
+            }
+            catch(Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                con.Close();
+            }
+            return isSaved; 
+        }
+    public List<Driver> GetAllDrivers()
         {
 
 

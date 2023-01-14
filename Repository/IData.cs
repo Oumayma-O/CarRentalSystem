@@ -3,11 +3,13 @@ namespace CarRentalSystem.Repository
 {
 	public interface IData
 	{
-		bool AddNewCar(Car newcar);
+		public bool AddNewCar(Car newcar);
         public List<Car> GetAllCars();
 
-        bool AddDriver(Driver newdriver);
-        public List<Driver> GetAllDrivers(); 
+        public bool AddDriver(Driver newdriver);
+        public List<Driver> GetAllDrivers();
+
+        public bool BookingNow(Rent rent);
 
 
     }
