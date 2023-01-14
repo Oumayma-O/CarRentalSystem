@@ -1,3 +1,5 @@
+using CarRentalSystem.Models;
+using CarRentalSystem.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarRentalSystem.Controllers
