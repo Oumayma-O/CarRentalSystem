@@ -16,6 +16,7 @@
 					<form action="/Rent/Add" method="post" enctype="multipart/form-data" autocomplete="off">
 						<div id="LocationDetails" >
 						<div class="mb-3 row">
+							<h5 class="text-info"> Location Details  </h5>
 							<label for="Name" class="col-sm-2 col-form-label">PickUp</label>
 						   <div class="col-9">
 								@Html.TextBoxFor(m => m.PickUp, new { @class = "form-control" , placeholder="Enter PickUp"})
@@ -72,6 +73,7 @@
 						</div>
 						<div id=" cardetails "  >
 						<div class="mb-3 row">
+							<h5 class="text-info"> Car Details  </h5>
 							<label for="Brand" class="col-sm-2 col-form-label">Brand </label>
 							<div class="col-9">
 								<select id="branddl" name="branddl" class="form-select">
@@ -144,5 +146,6 @@
 			$('#LocationDetails').show();
 			
 				}
+			
 	</script>
 

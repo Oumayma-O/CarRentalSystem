@@ -1,21 +1,25 @@
 ﻿using CarRentalSystem.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using CarRentalSystem.Repository; 
 
 namespace CarRentalSystem.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IData data;
 
-        public HomeController(ILogger<HomeController> logger)
+        
+        public HomeController(ILogger<HomeController> logger , IData data)
         {
             _logger = logger;
+            this.data = data; 
         }
-
         public IActionResult Index()
         {
-            return View();
+            var list = data.GetAllCars();
+            return View(list);
         }
 
         public IActionResult Privacy()
@@ -27,6 +31,7 @@ namespace CarRentalSystem.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+
         }
     }
 }
