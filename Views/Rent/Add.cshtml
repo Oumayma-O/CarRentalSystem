@@ -1,0 +1,148 @@
+﻿@model CarRentalSystem.Models.Rent; 
+@{
+	ViewData["Title"] = "Add Rent";
+}
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<div class="p-3 mt-3 shadow rounded">
+				<div class="text-center border-bottom mb-3 p-3">
+					<h2 class="text-info text-center "> Booking now </h2>
+				</div>
+				<div>
+					@Html.ValidationSummary()
+				</div>
+				<div class="mt-3 p-3">
+					<form action="/Rent/Add" method="post" enctype="multipart/form-data" autocomplete="off">
+						<div id="LocationDetails" >
+						<div class="mb-3 row">
+							<label for="Name" class="col-sm-2 col-form-label">PickUp</label>
+						   <div class="col-9">
+								@Html.TextBoxFor(m => m.PickUp, new { @class = "form-control" , placeholder="Enter PickUp"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="Address" class="col-sm-2 col-form-label">DropOff</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.DropOff, new { @class = "form-control" , placeholder="Enter DropOff"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="PickUpDate" class="col-sm-2 col-form-label">PickUp Date </label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.PickUpDate, new { @class = "form-control" , type="datetime-local",
+								placeholder="dd-mm-yyyy --:--" ,min="1997-01-01" ,max="2030-12-31"})
+								
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="DropOffDate" class="col-sm-2 col-form-label">DropOff Date </label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.DropOffDate, new { @class = "form-control" , type="datetime-local",
+								placeholder="dd-mm-yyyy --:--" ,min="1997-01-01" ,max="2030-12-31"})
+
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="TotalRun" class="col-sm-2 col-form-label">Total Run</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.TotalRun, new { @class = "form-control" , placeholder="Enter Total Run"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="Rate" class="col-sm-2 col-form-label">Rate</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.Rate, new { @class = "form-control" , placeholder="Enter Rate"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="TotalAmount" class="col-sm-2 col-form-label">Total Amount</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.TotalAmount, new { @class = "form-control" , placeholder="Enter Total Amount"})
+							</div>
+						</div>
+
+							<div>
+								<div class="mb-3">
+									<button class="btn btn-sm shadow rounded btn-primary p-2" type="button" onclick="showCarDetails()" > Next </button>
+
+								</div>
+						</div>
+						
+						</div>
+						<div id=" cardetails "  >
+						<div class="mb-3 row">
+							<label for="Brand" class="col-sm-2 col-form-label">Brand </label>
+							<div class="col-9">
+								<select id="branddl" name="branddl" class="form-select">
+									<option value="">Select Brand</option>
+								</select>
+							</div>
+							
+							<div class="mb-3 row " style="margin: 2vw ; " >
+								<label for="Model" class="col-sm-2 col-form-label"> Model </label>
+								<div class="col-9">
+									<select id="modeldl" name="modeldl" class="form-select">
+										<option value="">Select Model</option>
+									</select>
+									
+								</div>
+								</div>
+
+								<div class="mb-3 row" >
+									<label for="DriverId" class="col-sm-2 col-form-label " > DriverId </label>
+							<div class="col-9">
+									<select id="Driveriddl" name="Driveriddl" class="form-select">
+										<option value="">Select Driver</option>
+									</select>
+							</div>
+
+						</div>
+								<div class="mb-3 row" >
+									<label for="CustomerName" class="col-sm-2 col-form-label" > CustomerName </label>
+						<div class="col-9">
+										@Html.TextBoxFor(m => m.CustomerName, new { @class = "form-control" , placeholder="Enter Customer Name"})
+						</div>
+						</div>
+
+								<div class="mb-3 row" >
+									<label for="CustomerContact" class="col-sm-2 col-form-label" > Customer Contact </label>
+						<div class="col-9">
+										@Html.TextBoxFor(m => m.CustomerContact, new { @class = "form-control" , placeholder="Enter CustomerContact"})
+						</div>
+						</div>
+
+
+								<div class="mb-3" >
+									<button class="btn btn-sm btn-primary shadow rounded p-2" type="button" onclick="showLocationDetails()">previous</button>
+							<button class="btn btn-sm shadow rounded p-2 btn-dark" type="reset">Clear</button>
+							<button class="btn btn-sm shadow rounded p-2 btn-success" type="submit">Book now</button>
+								
+						</div>
+							</div>
+
+							
+                 </form>
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+	<script scr="~/lib/jquery/dist/jquery.min.js"></script>
+	<script type="text/javascript">
+		function showCarDetails() {
+			$('#cardetails').show();
+			$('#LocationDetails').hide();
+				
+			}
+		
+		function showLocationDetails(){
+			$('#cardetails').hide();
+			$('#LocationDetails').show();
+			
+				}
+	</script>
+

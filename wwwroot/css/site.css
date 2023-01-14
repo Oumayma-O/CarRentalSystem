@@ -1,0 +1,28 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.validation-summary-errors {
+    color: #da1212;
+}
+.input-validation-error {
+    border-color: #da1212;
+}
+.none{
+    display: none; 
+
+}

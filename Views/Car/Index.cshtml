@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CarRentalSystem.Models.Car>
+@{
+    ViewData["Title"] = "Car";
+}
+<h2>Car Page </h2>
+<div class="container">
+	<div class="row">
+		<div class="mt-3 p-3 shadow rounded">
+			<div class="d-flex justify-content-between mb-3 p-3">
+				<h3 class="text-info">Car List </h3>
+				@Html.ActionLink("Add New Car", "Add", "Car", null , new { @class = "btn btn-sm btn-primary" })
+			</div>
+			<div class="p-3">
+				<table class="table table-responsive table-bordered  text-center">
+					<thead class="text-info"> 
+						<tr>
+							<th>Id</th>
+							<th>Brand</th>
+							<th>Model</th>
+							<th>Seating Capacity</th>
+							<th>Engine</th>
+							<th>Fuel Type</th>
+							<th>Passing Year</th>
+							<th>Car Number</th>
+								
+						</tr>
+					</thead>
+					<tbody>
+						@foreach(var item in Model){
+							<tr>
+								<td>@item.Id</td>
+								<td>@item.Brand</td>
+								<td>@item.Model</td>
+								<td>@item.SeatingCapacity</td>
+								<td>@item.Engine</td>
+								<td>@item.FuelType</td>
+								<td>@item.PassingYear</td>
+								<td>@item.CarNumber</td>
+								<td>
+									@*@Html.ActionLink("Edit", "Edit", "Car", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+									@Html.ActionLink("Details", "Details", "Car", new { id = item.Id }, new { @class = "btn btn-sm btn-primary" })
+									@Html.ActionLink("Delete", "Delete", "Car", new { id = item.Id }, new { @class = "btn btn-sm btn-danger" })*@
+								</td>
+							</tr>
+						}
+					</tbody>
+    
+        </div>
+    </div>
+</div>
+
+
+    

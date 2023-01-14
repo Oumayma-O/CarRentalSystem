@@ -1,0 +1,84 @@
+﻿@model CarRentalSystem.Models.Driver;
+@{
+	
+	ViewData["Title"] = "Add Driver";
+}
+<div class="container">
+	<div class="row">
+		<div class="col-6 offset-3">
+			<div class="mt-3 p-3 shadow rounded">
+				<div class="text-blackalign-content-center border-bottom">
+					<h2 class="text-info text-center "> Add New Driver </h2>
+				</div>
+				<div>
+					@Html.ValidationSummary()
+				</div>
+				<div class="mt-3 p-3">
+					<form action="/Driver/Add" method="post" enctype="multipart/form-data" autocomplete="off">
+						<div class="mb-3 row">
+							<label for="Name" class="col-sm-2 col-form-label">Name</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.DriverName, new { @class = "form-control" , placeholder="Enter Name"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="Address" class="col-sm-2 col-form-label">Address</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.Address, new { @class = "form-control" , placeholder="Enter Address"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="MobileNo" class="col-sm-2 col-form-label">Mobile Number </label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.MobileNo, new { @class = "form-control" , placeholder="Enter MobileNo"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="Age" class="col-sm-2 col-form-label">Age</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.Age, new { @class = "form-control" , placeholder="Enter Age"})
+							</div>
+						</div>
+						<div class="mb-3 row">
+							<label for="Experience" class="col-sm-2 col-form-label">Experience</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.Experience, new { @class = "form-control" , placeholder="Enter Experience"})
+							</div>
+						</div>
+						
+						<div class="mb-3 row">
+							<label for="Driver Image" class="col-sm-2 col-form-label">Driver Image</label>
+							<div class="col-9">
+								@Html.TextBoxFor(m => m.DriverImage, new { @class = "form-control" , type="file" , accept="image/*"})
+							</div>
+						</div>
+
+						<div class="mb-3">
+
+							<button class="btn btn-sm shadow rounded p-2 btn-dark" type="reset">Clear</button>
+							<button class="btn btn-sm shadow rounded p-2 btn-success" type="submit">Add</button>
+						</div>
+
+					
+					</form>
+
+				</div>
+
+			</div>
+
+
+		</div>
+	</div>
+	<script scr="~/lib/jquery/dist/jquery.min.js"></script>
+	<script>
+		function showAlert() {
+			if ('@ViewBag.isSaved!' = 'True') {
+
+				alert("New Driver Added Successfully");
+			}
+		}
+		$doucment.ready(function () {
+			showAlert();
+		});
+	</script>
+	
